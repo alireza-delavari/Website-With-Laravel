@@ -63,14 +63,65 @@
     <hr class="bigHr">
     <div class="container">
         <div class="myItemContainer">
-            <div class="myItem">
+            <div class="myItem myItemBorder">
                 <h4>محصولات شرکت</h4>
+                <div class="myItem2">
+                    <p>
+                        item1
+                    </p>
+                    <p>
+                        item2
+                    </p>
+                    <p>
+                        item3
+                    </p>
+                    <p>
+                        item4
+                    </p>
+                    <p>
+                        item5
+                    </p>
+                </div>
             </div>
-            <div class="myItem">
+            <div class="myItem myItemBorder">
                 <h4>item2</h4>
+                <div class="myItem2">
+                    <p>
+                        item1
+                    </p>
+                    <p>
+                        item2
+                    </p>
+                    <p>
+                        item3
+                    </p>
+                    <p>
+                        item4
+                    </p>
+                    <p>
+                        item5
+                    </p>
+                </div>
             </div>
-            <div class="myItem">
+            <div class="myItem myItemBorder">
                 <h4>اطلاعات تماس</h4>
+                <div class="myItem2">
+                    <p>
+                        item1
+                    </p>
+                    <p>
+                        item2
+                    </p>
+                    <p>
+                        item3
+                    </p>
+                    <p>
+                        item4
+                    </p>
+                    <p>
+                        item5
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -80,18 +131,19 @@
             <p>اخبار ویژه</p>
             <a href="#">
                 <div class="myItem">
-                    <img src="/img/(1).jpg">
+                    <img class="img-thumbnail blur" src="/img/(1).jpg">
                     <h4>تیتر خبر1</h4>
                 </div>
             </a>
             <div class="myItem">
-                <img src="/img/(2).jpg">
+                <img  class="img-thumbnail blur" src="/img/(2).jpg">
                 <h4>تیتر خبر2</h4>
             </div>
             <div class="myItem">
-                <img src="/img/(3).jpg">
+                <img class="img-thumbnail blur" src="/img/(3).jpg">
                 <h4>تیتر خبر3</h4>
             </div>
+
         </div>
     </div>
     <br>
@@ -101,17 +153,17 @@
             <p>محصولات شرکت</p>
             <a href="#">
                 <div class="myItem">
-                    <img src="/img/(1).jpg">
+                    <img class="img-thumbnail blur" src="/img/(1).jpg">
                 </div>
             </a>
             <div class="myItem">
-                <img src="/img/(2).jpg">
+                <img class="img-thumbnail blur" src="/img/(2).jpg">
             </div>
             <div class="myItem">
-                <img src="/img/(3).jpg">
+                <img class="img-thumbnail blur" src="/img/(3).jpg">
             </div>
             <div class="myItem">
-                <img src="/img/(3).jpg">
+                <img class="img-thumbnail blur" src="/img/(3).jpg">
             </div>
         </div>
     </div>

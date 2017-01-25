@@ -1,27 +1,70 @@
 * {
     direction: rtl;
+    font-family: "Tahoma";
+    /*font-family: "IranNastaliq";*/
+    font-family: "iransansweb";
 
-    font-family: "IRANSansWeb";
-
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-
+    /*background: linear-gradient(white,skyblue,white)*/
+    background-color: #f6f6f6;
 }
 
 @font-face {
-    src: url('/public/fontnsweb.ttf');
-    font-family: "IRANSansWeb";
+    src: url('/font/iransansweb.ttf');
+    /*font-family: "IRANSansWeb";*/
+    /*src: url('/font/IranNastaliq.ttf');*/
+    font-family: "iransansweb";
+    font-weight: normal;
+    font-style: normal;
 }
 
 a {
     color: black;
 }
 
+.topInfoBar{
+    height: 50px;
+    text-align: center;
+    background: deepskyblue;
+}
+.topInfoBar div{
+    vertical-align: middle;
+    padding: 15px ;
+}
+
+.affix{
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.affix + .mainContent {
+    padding-top: 50px;
+}
+
+.navbar{
+
+}
+
 .menuLogo{
     height:30px;
     width:30px;
     margin-top: -5px;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+
+.menuLogo:hover{
+    transition-duration: 1s;
+    transform: rotate(360deg);
+    -webkit-transition-duration: 1s;
+    -webkit-transform: rotate(360deg);
 }
 
 .menuText{
@@ -54,7 +97,6 @@ a {
     animation-name: example;
     animation-duration: 1s;
 }
-
 
 
 .navbar-brand {
@@ -193,21 +235,38 @@ a {
 
 .myItem {
     width: 200px;
-    height: 150px;
+    /*height: 150px;*/
     margin: 5px;
-    background-color: lightgray;
+    vertical-align: top;
     display: inline-block;
+
+}
+
+.myItemBorder{
+
+}
+
+.myItem2 {
+    border: 2px solid lightgray;
+    border-bottom: 2px ridge lightgray;
+    background-color: lightyellow;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 2px 2px #111;
+    box-shadow: 1px 2px 2px #111;
 }
 
 .myItem img {
     width: 200px;
     height: 150px;
+    -webkit-box-shadow: 1px 2px 4px #111;
+    box-shadow: 1px 2px 4px #111;
 }
 
 .bigHr {
     background-color: lightgray !important;
     height: 1px !important;
 }
+
 
 /*slider*/
 .carousel-inner > .item > img,
@@ -224,8 +283,64 @@ footer {
     background-color: #222222;
     color: white;
     margin-top: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+footer hr{
+    margin-top: 10px ;
+    margin-bottom: 15px ;
+    border-color: red;
+}
+
+.hr2 {
+    border-color: #5ca9ff;
+}
+
+footer a{
+    color: white;
+    display: block;
+
+}
+
+.footerColumn {
+    padding-right: 15px;
+    margin-bottom: 25px;
+}
+
+.footerTextTitles{
+    /*color: #fffa90;*/
+    color: #2196F3;
+}
+
+.footerColumn form input{
+    color: #333333;
+    display: block;
+    margin-top: 5px;
+}
+.footerColumn form input[type=submit]{
+    background-color: #007fff;
+    border-color: #5ca9ff;
+    /*color: #ffff00;*/
+    color: white;
 }
 
 div[class^='col-'], div[class*=' col-']{
     float: right;
+}
+
+.blur {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.blur:hover {
+    -webkit-filter: blur(1.7px);
+}
+
+.bottomCopyRight {
+    text-align: center;
 }

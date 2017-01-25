@@ -33,7 +33,18 @@
     </div>
 </div>--}}
 
-<nav class="navbar navbar-default navbar-fixed-top container-fluid">
+<div class="topInfoBar" >
+    <div class="col-sm-3 hidden-xs">
+        info@gmail.com
+    </div>
+    <div class="col-sm-6 col-xs-12" >
+        برای عضویت در کانال تلگرام کلیک کنید
+    </div>
+    <div class="col-sm-3 hidden-xs" ></div>
+</div>
+
+
+<nav class="navbar navbar-inverse container-fluid" data-spy="affix" data-offset-top="50" >
     <div class="container">
         <div class="navbar-header navbar-right">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -44,12 +55,13 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img alt="Brand" class="menuLogo" src="/img/Logo.png">
+                <img alt="Brand" class="menuLogo" src="/img/Logo2.png">
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-nav-rtl navbar-right">
-                <li class="active"><a href="#"><i class="fa fa-home" style="font-size: 17px"></i><span class="menuText" >صفحه اصلی</span><span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="#"><i class="fa fa-home" style="font-size: 17px"></i><span class="menuText">صفحه اصلی</span><span
+                                class="sr-only">(current)</span></a></li>
                 <li><a href="#">اطلاعات فنی </a></li>
                 <li><a href="#">محصولات </a></li>
                 <li><a href="#">گالری تصاویر </a></li>
@@ -80,28 +92,67 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-sm-6" >
-                <p>اطلاعات تماس</p>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <p class="footerTextTitles">اطلاعات تماس</p>
                 <hr>
-                <p>آدرس:</p>
-                <br>
-                <p>تلفن:</p>
-                <br>
-                <p>ایمیل:</p>
+                <div class="footerColumn">
+                    <p>آدرس:</p>
+                    <br>
+                    <p>تلفن:</p>
+                    <br>
+                    <p>ایمیل:</p>
+                </div>
             </div>
-            <div class="col-md-3 col-sm-6" >
-                <p>دسترسی سریع</p>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <p class="footerTextTitles">دسترسی سریع</p>
+                <hr>
+                <div class="footerColumn">
+                    <a href="#">صفحه اصلی</a>
+                    <br>
+                    <a href="#">ارتباط با ما</a>
+                    <br>
+                    <a href="#">تماس با ما</a>
+                    <br>
+                    <a href="#">اخبار</a>
+                </div>
             </div>
-            <div class="clearfix visible-sm"></div>
-            <div class="col-md-3 col-sm-6" >
-                <p>خبرنامه</p>
+            <div class="clearfix visible-sm visible-xs"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <p class="footerTextTitles">خبرنامه</p>
+                <hr>
+                <div class="footerColumn">
+                    <p> برای عضویت در خبرنامه ایمیل خود را ثبت کنید. </p>
+                    <form method="get" action="#" >
+                        <input name="email" type="email">
+                        <input type="submit" value="ثبت نام">
+                    </form>
+                </div>
             </div>
-            <div class="col-md-3 col-sm-6" >
-                <p>برنامه ها</p>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <p class="footerTextTitles">برنامه ها</p>
+                <hr>
+                <div class="footerColumn">
+                    <a href="#">ایزوگام شرق</a>
+                    <br>
+                    <a href="#">ایزوگام دلیجان</a>
+                    <br>
+                    <a href="#">ایزوگام مرکزی</a>
+                </div>
             </div>
         </div>
-        <hr>
-
+        <hr class="hr2">
+        <div class="row">
+            <div class="bottomCopyRight" >
+                <div class="col-sm-3 hidden-xs">
+                </div>
+                <div class="col-sm-6 col-xs-12" >
+                    <p>کلیه حقوق این سایت متعلق به شرکت x میباشد</p>
+                </div>
+                <div class="col-sm-3 col-xs-12" >
+                    info@gmail.com
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -109,4 +160,3 @@
 <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="/js/script.js"></script>
 </body>
-</html>
