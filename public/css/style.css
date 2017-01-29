@@ -170,6 +170,7 @@ glyphicon-home {
     background-color: ghostwhite;
     margin-top: 15px;
     padding-bottom: 15px;
+    padding-top: 15px;
     border-radius: 5px;
     box-shadow: 5px 5px 5px gray;
 }
@@ -224,6 +225,18 @@ glyphicon-home {
     max-height: 400px;
     margin: auto;
 }
+
+.carousel-control{
+    opacity: 0.1;
+    width: 10% !important;
+}
+.carousel-control:hover{
+    opacity: 0.1!important;
+}
+.carousel-control:focus{
+    opacity: 0.1!important;
+}
+
 
 #myCarousel {
     border-radius: 5px 5px 5px 50px;
@@ -291,11 +304,43 @@ div[class^='col-'], div[class*=' col-'] {
     text-align: center;
 }
 
+.modal-body{
+    padding: 10px;
+}
 .modal-content {
-    width: 600px;
     background-color: #222222;
     color: white;
+    margin: 0 auto;
 }
+.imageViewer img {
+    width: 100%;
+    height: 300px;
+    padding-left: 5px;
+}
+.allImages {
+    height: 300px;
+    overflow: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*1200ld 992md 768sm 480xs 320exs*/
+@media only screen and (max-width:768px ){
+    .imageViewer img {
+        height: 280px;
+    }
+    .allImages {
+        height: 280px;
+    }
+}
+@media only screen and (max-width:480px ){
+    .imageViewer img {
+        height: 200px;
+    }
+    .allImages {
+        height: 200px;
+    }
+}
+
 
 .modal-content .myBtnClose {
     color: white;
@@ -308,20 +353,34 @@ div[class^='col-'], div[class*=' col-'] {
     vertical-align: middle;
 }
 
-.imageViewer img {
-    width: 100%;
-    height: 300px;
-}
-
 .myThumbnail {
     margin-bottom: 5px;
     padding: 0px;
 }
 
-.allImages {
-    height: 300px;
-    overflow: auto;
-}
 .myThumbnailActive{
     padding: 3px !important;
+}
+.callusForm {
+    background-color: rgba(0, 0, 250, 0.1);
+    border-radius: 5px 5px 5px 5px;
+    padding: 20px;
+    margin-bottom: 5px;
+}
+.callusForm .row{
+    padding: 8px 0px;
+}
+
+.callusinfo {
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgba(0, 0, 250, 0.1);
+    padding: 20px;
+    margin-bottom: 5px;
+}
+.callusinfo table td{
+    padding: 8px 50px;
+    text-align: center;
+}
+.callusinfo table{
+    margin: 0 auto;
 }

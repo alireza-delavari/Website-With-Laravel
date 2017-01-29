@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $('.thumbnail').click(function(){
         $('.imageViewer').empty();
         // var title = $(this).parent('a').attr("title");
@@ -12,5 +13,9 @@ $(document).ready(function() {
         $(".allImages .myThumbnail[src='"+src+"']").addClass("myThumbnailActive");
         $('.modal-body .imageViewer .thumbnail').removeClass("blur");
         $('#myModal').modal({show:true});
+        $("#myModal").off("click");
+    });
+    $(".myBtnClose").click(function () {
+        $('#myModal').modal('hide');
     });
 });
