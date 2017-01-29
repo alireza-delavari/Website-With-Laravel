@@ -45,8 +45,9 @@ a {
     z-index: 99;
 }
 
-.affix + .mainContent {
-    padding-top: 57px;
+.affix + #mainContent {
+    /*padding-top: 56px;*/
+    margin-top: 68px;
 }
 
 .navbar {
@@ -159,9 +160,11 @@ glyphicon-home {
     }
 }
 
-.mainContent {
-
+#mainContent {
+    min-height: 350px;
 }
+
+
 
 .mainItemContainer {
     background-color: ghostwhite;
@@ -224,6 +227,7 @@ glyphicon-home {
 
 #myCarousel {
     border-radius: 5px 5px 5px 50px;
+    margin-top: -15px;
 }
 
 footer {
@@ -293,10 +297,15 @@ div[class^='col-'], div[class*=' col-'] {
     color: white;
 }
 
-.modal-content .close {
+.modal-content .myBtnClose {
     color: white;
     text-shadow: none;
-    padding-left: 6px;
+    float: right;
+    text-gn: center;
+    margin-left: 5px;
+}
+.myBtnClose .glyphicon{
+    vertical-align: middle;
 }
 
 .imageViewer img {

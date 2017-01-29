@@ -3,7 +3,7 @@ $(document).ready(function() {
         $('.imageViewer').empty();
         // var title = $(this).parent('a').attr("title");
         var title = $(this).attr("data-title");
-        $('.modal-title').html(title);
+        $('.modal-title').html(title).slide;
         $($(this).parents('div').html()).appendTo('.imageViewer');
         $('.modal-body .imageViewer .thumbnail').removeClass("myThumbnailActive");
         $('.modal-body .imageViewer .thumbnail').removeClass("myThumbnail");
