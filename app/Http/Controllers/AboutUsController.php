@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: alireza
- * Date: 1/24/17
- * Time: 8:53 AM
+ * Date: 1/26/17
+ * Time: 12:00 PM
  */
 
 namespace App\Http\Controllers;
 
 
-class HomeController extends Controller
+class AboutUsController extends Controller
 {
     function __construct()
     {
@@ -17,9 +17,7 @@ class HomeController extends Controller
     }
 
     function index(){
-        return view('home');
+        return view('aboutUs');
     }
-    function index2(){
-        return view('home');
-    }
+
 }

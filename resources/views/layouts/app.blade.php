@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
 
+    <link href="/css/customScrollbar.css" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -44,7 +45,7 @@
 </div>
 
 
-<nav class="navbar navbar-inverse container-fluid" data-spy="affix" data-offset-top="50" >
+<nav class="navbar navbar-inverse container-fluid " data-spy="affix" data-offset-top="25" >
     <div class="container">
         <div class="navbar-header navbar-right">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -54,27 +55,31 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand hidden-sm" href="/">
                 <img alt="Brand" class="menuLogo" src="/img/Logo2.png">
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-nav-rtl navbar-right">
-                <li class="active"><a href="#"><i class="fa fa-home" style="font-size: 17px"></i><span class="menuText">صفحه اصلی</span><span
-                                class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="/">
+                        {{--<i class="fa fa-home" style="font-size: 17px"></i>--}}
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="menuText">صفحه اصلی</span>
+                        <span class="sr-only">(current)</span></a>
+                </li>
                 <li><a href="#">اطلاعات فنی </a></li>
                 <li><a href="#">محصولات </a></li>
-                <li><a href="#">گالری تصاویر </a></li>
+                <li><a href="/gallery">گالری تصاویر </a></li>
                 <li><a href="#">اعطای نمایندگی </a></li>
-                <li><a href="#">ارتباط با ما </a></li>
+                <li><a href="/contactUs">ارتباط با ما </a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">درباره ما <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">زیر منوی اول</a></li>
-                        <li><a href="#">زیر منوی دوم</a></li>
+                        <li><a href="/aboutUs">درباره شرکت</a></li>
+                        <li><a href="#">محصولات</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">زیر منوی سوم</a></li>
+                        <li><a href="#">تاریخچه</a></li>
                     </ul>
                 </li>
             </ul>
@@ -92,7 +97,7 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-sm -6 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <p class="footerTextTitles">اطلاعات تماس</p>
                 <hr>
                 <div class="footerColumn">
@@ -107,11 +112,11 @@
                 <p class="footerTextTitles">دسترسی سریع</p>
                 <hr>
                 <div class="footerColumn">
-                    <a href="#">صفحه اصلی</a>
+                    <a href="/">صفحه اصلی</a>
                     <br>
-                    <a href="#">ارتباط با ما</a>
+                    <a href="/aboutUs">درباره ما</a>
                     <br>
-                    <a href="#">تماس با ما</a>
+                    <a href="/contactUs">تماس با ما</a>
                     <br>
                     <a href="#">اخبار</a>
                 </div>
@@ -122,9 +127,10 @@
                 <hr>
                 <div class="footerColumn">
                     <p> برای عضویت در خبرنامه ایمیل خود را ثبت کنید. </p>
-                    <form method="get" action="#" >
+                    <form method="post" action="#" >
                         <input name="email" type="email">
-                        <input type="submit" value="ثبت نام">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="btn-success btn" value="ثبت نام">
                     </form>
                 </div>
             </div>
