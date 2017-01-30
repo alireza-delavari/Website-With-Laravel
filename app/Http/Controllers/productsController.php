@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-class AboutUsController extends Controller
+class productsController extends Controller
 {
     function __construct()
     {
@@ -17,6 +17,6 @@ class AboutUsController extends Controller
     }
 
     function index(){
-        return view('aboutUs');
+        return view('products');
     }
 }

@@ -7,7 +7,7 @@
     <div class="container mainItemContainer">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <form class="callusForm" action="SendEmail.php" method="post">
+                <form class="callusForm" action="#" method="get">
                     <div class="row">
                         <div class="col-sm-6 col-xs-12" >نام و نام خانوادگی: </div>
                         <div class="col-sm-6 col-xs-12" >
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-6 col-xs-12" >ایمیل: </div>
                         <div class="col-sm-6 col-xs-12" >
-                            <input type="email" name="email" placeholder="ایمیل">
+                            <input type="email" name="email" required="required" placeholder="ایمیل">
                         </div>
                     </div>
                     <div class="row">

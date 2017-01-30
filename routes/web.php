@@ -21,6 +21,7 @@ Route::get('gallery', 'GalleryController@index');
 
 Route::get('gallery/{id}', 'GalleryController@showGallery');
 Route::get('contactUs', 'ContactUsController@index');
+Route::get('products', 'productsController@index');
 //Route::get('contactUs', function (){ return view('contactUs'); });
 
 Route::get('welcome', function () {
