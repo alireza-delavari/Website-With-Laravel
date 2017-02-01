@@ -21,13 +21,25 @@ class ContactUsController extends Controller
     function sendEmail(Request $request){
 
         require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+        $messages = [
+            'name.required' => 'فیلد "نام و نام خانوادگی" خالی است.',
+            'email.required' => 'فیلد "ایمیل" خالی است.',
+            'email.email' => 'فیلد "ایمیل" معتبر نیست.',
+            'phonenumber.numeric' => 'فیلد "شماره تماس" معتبر نیست.',
+            'phonenumber.regex' => 'فیلد "شماره تماس" معتبر نیست.',
+            'phonenumber.required' => 'فیلد "شماره تماس" خالی است.',
+            'description.required' => 'فیلد "توضیحات" خالی است.',
+            'description.max' => 'فیلد "توضیحات" باید کمتر از :max کاراکتر باشد.',
+        ];
 
-        $this->validate($request,[
-           'name'=>'required',
-            'email'=>'required',
-            'description'=>'max:600',
-            'phonenumber'=>'required',
-        ]);
+        $rules = [
+            'name'=>'required',
+            'email'=>'required|email',
+            'description'=>'required|max:600',
+            'phonenumber'=>'required|numeric|regex:/^(0)[0-9]{10}$/',
+        ];
+        $this->validate($request,$rules,$messages);
+
 
         $senderFrom=$request["email"];//$_POST["email"];
         $senderName=$request["name"];//$_POST["name"];

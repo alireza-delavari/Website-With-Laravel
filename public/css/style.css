@@ -381,6 +381,19 @@ div[class^='col-'], div[class*=' col-'] {
     padding: 8px 0px;
 }
 
+.callusForm input{
+    max-width: 192px;
+    width: 100%;
+    text-align:center;
+}
+
+
+
+.callusForm textarea{
+    max-width: 192px;
+    width: 100%;
+}
+
 .callusinfo {
     border-radius: 5px 5px 5px 5px;
     background-color: rgba(0, 0, 250, 0.1);

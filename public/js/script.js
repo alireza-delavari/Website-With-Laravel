@@ -68,4 +68,18 @@ $(document).ready(function() {
 
     });
 
+
+
+    //callusFormSubmit
+
+    $("#callusFormSubmit").click(function () {
+        //$(this).parents('form').checkValidity();
+        $(this).parents('form').submit();
+        //$(".callusForm").disable()
+        //$(this).attr('disabled','disabled');
+        $(".callusForm input[type!=hidden]").attr('disabled','disabled');
+        $(".callusForm textarea").attr('disabled','disabled');
+        $(".formLoading").show(500);
+    });
+
 });
