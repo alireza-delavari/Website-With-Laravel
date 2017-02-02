@@ -305,12 +305,21 @@ div[class^='col-'], div[class*=' col-'] {
 }
 
 .modal-body{
-    padding: 10px;
+    padding: 0px;
+    padding-top: 10px;
 }
 .modal-content {
     background-color: #222222;
     color: white;
     margin: 0 auto;
+}
+.modal-footer{
+    padding: 10px;
+    padding-right: 15px;
+}
+.modal-title{
+    margin-right: 20px;
+    margin-top: 10px;
 }
 .imageViewer img {
     width: 100%;
@@ -342,7 +351,7 @@ div[class^='col-'], div[class*=' col-'] {
         height: 200px;
     }
 
-    .callusForm input{
+    .callusForm input,.btnFile{
         max-width: 160px;
     }
     .callusForm textarea{
@@ -381,7 +390,7 @@ div[class^='col-'], div[class*=' col-'] {
     padding: 8px 0px;
 }
 
-.callusForm input{
+.callusForm input,.btnFile{
     max-width: 192px;
     width: 100%;
     text-align:center;
