@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <link href="/css/customScrollbar.css" rel="stylesheet" type="text/css">
+    {{--<link href="/css/customScrollbar2.css" rel="stylesheet" type="text/css">--}}
+    {{--<link href="/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">--}}
+    {{--<link type="text/css" href="/css/jquery.jscrollpane.css" rel="stylesheet" media="all"/>--}}
     <link href="/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -34,18 +36,18 @@
     </div>
 </div>--}}
 
-<div class="topInfoBar" >
+<div class="topInfoBar">
     <div class="col-sm-3 hidden-xs">
         info@gmail.com
     </div>
-    <div class="col-sm-6 col-xs-12" >
+    <div class="col-sm-6 col-xs-12">
         برای عضویت در کانال تلگرام کلیک کنید
     </div>
-    <div class="col-sm-3 hidden-xs" ></div>
+    <div class="col-sm-3 hidden-xs"></div>
 </div>
 
 
-<nav class="navbar navbar-inverse container-fluid " data-spy="affix" data-offset-top="25" >
+<nav class="navbar navbar-inverse container-fluid " data-spy="affix" data-offset-top="25">
     <div class="container">
         <div class="navbar-header navbar-right">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -127,7 +129,7 @@
                 <hr>
                 <div class="footerColumn">
                     <p> برای عضویت در خبرنامه ایمیل خود را ثبت کنید. </p>
-                    <form method="post" action="#" >
+                    <form method="post" action="#">
                         <input name="email" type="email">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="btn-success btn" value="ثبت نام">
@@ -148,13 +150,13 @@
         </div>
         <hr class="hr2">
         <div class="row">
-            <div class="bottomCopyRight" >
+            <div class="bottomCopyRight">
                 <div class="col-sm-3 hidden-xs">
                 </div>
-                <div class="col-sm-6 col-xs-12" >
+                <div class="col-sm-6 col-xs-12">
                     <p>کلیه حقوق این سایت متعلق به شرکت x میباشد</p>
                 </div>
-                <div class="col-sm-3 col-xs-12" >
+                <div class="col-sm-3 col-xs-12">
                     info@gmail.com
                 </div>
             </div>
@@ -164,5 +166,24 @@
 
 <script src="/js/jquery-3.1.1.min.js"></script>
 <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+{{--<script src="/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>--}}
+
+{{--<!-- the mousewheel plugin - optional to provide mousewheel support -->--}}
+{{--<script type="text/javascript" src="/js/jquery.mousewheel.js"></script>--}}
+
+{{--<!-- the jScrollPane script -->--}}
+{{--<script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>--}}
+
+
+{{--<!-- the mousewheel plugin - optional to provide mousewheel support -->--}}
+{{--<script type="text/javascript" src="/js/jquery.mousewheel.js"></script>--}}
+
+{{--<!-- the jScrollPane script -->--}}
+{{--<script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>--}}
+
 <script src="/js/script.js"></script>
+<script src="/js/jquery.nicescroll.min.js"></script>
+{{--<script src=" http://areaaperta.com/nicescroll/js/jquery.nicescroll.plus.js"></script>--}}
+<script>
+</script>
 </body>

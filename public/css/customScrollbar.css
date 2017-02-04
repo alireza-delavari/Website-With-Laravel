@@ -52,6 +52,7 @@ body {
     overflow: auto;
     background-color: whiteSmoke;
 }
+
 .scrollbar-container .inner {
     height: 2011px;
     width: 1985px;

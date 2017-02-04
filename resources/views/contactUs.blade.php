@@ -7,24 +7,26 @@
     <div class="container mainItemContainer">
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <form class="callusForm" action="/contactUs" method="post">
+                <form class="callusForm" action="/contactUs" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">نام و نام خانوادگی:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="text" name="name" placeholder="نام و نام خانوادگی" value="{{old('name')}}" >
+                            <input type="text" name="name" placeholder="نام و نام خانوادگی" value="{{old('name')}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">شماره تماس:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="tel" name="phonenumber" placeholder="شماره تماس" value="{{old('phonenumber')}}" >
+                            <input type="tel" name="phonenumber" placeholder="شماره تماس"
+                                   value="{{old('phonenumber')}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">ایمیل:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="email" name="email" required="required" placeholder="ایمیل" value="{{old('email')}}" >
+                            <input type="email" name="email" required="required" placeholder="ایمیل"
+                                   value="{{old('email')}}">
                         </div>
                     </div>
                     <div class="row">
@@ -34,11 +36,21 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-6 col-xs-12">فایل:</div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label class="btn btn-primary btn-block btnFile">
+                                انتخاب فایل
+                                <input type="file" style="display:none;" name="fileAttachmet" placeholder="فایل"
+                                       value="{{old('fileAttachmet')}}">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12 col-xs-12 col-md-12" style="text-align: center">
                             <input type="submit" class="btn btn-success" id="callusFormSubmit" value="ارسال">
                             <input type="reset" class="btn btn-warning" value="پاک کردن">
-                            <div class="formLoading" style="display: none" >
-                                <img src="/img/loading.gif" >
+                            <div class="formLoading" style="display: none">
+                                <img src="/img/loading.gif">
                             </div>
                             @if(isset($sendResult))
                                 @if($sendResult)
@@ -52,7 +64,7 @@
                                 <div style="margin-top: 5px;" class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
-                                            <li >{{ $error }}</li>
+                                            <li>{{ $error }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -109,35 +121,35 @@
                         </div>
                     </div>
                     {{--<table>--}}
-                        {{--<tr>--}}
-                            {{--<th> شماره تماس:</th>--}}
-                            {{--<td> 08644223868</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<th> شماره همراه:</th>--}}
-                            {{--<td> 09216252866</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<th> آدرس پستی:</th>--}}
-                            {{--<td> محلات میدان استقلال</td>--}}
-                        {{--</tr>--}}
-                        {{--<tr>--}}
-                            {{--<th> شبکه های اجتماعی:</th>--}}
-                            {{--<td>--}}
-                                {{--<div class="sharingicons">--}}
-                                    {{--<i class="fa fa-facebook-square fa-2x" style="color: #1f648b"--}}
-                                       {{--aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-twitter-square fa-2x" style="color: #2a88bd" aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-google-plus-square fa-2x" style="color: #c12e2a"--}}
-                                       {{--aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-linkedin-square fa-2x" style="color: #2a88bd"--}}
-                                       {{--aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-tumblr-square fa-2x" style="color: #1f648b" aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-instagram fa-2x" style="color: #2a88bd" aria-hidden="true"></i>--}}
-                                    {{--<i class="fa fa-telegram fa-2x" style="color: #2aabd2" aria-hidden="true"></i>--}}
-                                {{--</div>--}}
-                            {{--</td>--}}
-                        {{--</tr>--}}
+                    {{--<tr>--}}
+                    {{--<th> شماره تماس:</th>--}}
+                    {{--<td> 08644223868</td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                    {{--<th> شماره همراه:</th>--}}
+                    {{--<td> 09216252866</td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                    {{--<th> آدرس پستی:</th>--}}
+                    {{--<td> محلات میدان استقلال</td>--}}
+                    {{--</tr>--}}
+                    {{--<tr>--}}
+                    {{--<th> شبکه های اجتماعی:</th>--}}
+                    {{--<td>--}}
+                    {{--<div class="sharingicons">--}}
+                    {{--<i class="fa fa-facebook-square fa-2x" style="color: #1f648b"--}}
+                    {{--aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-twitter-square fa-2x" style="color: #2a88bd" aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-google-plus-square fa-2x" style="color: #c12e2a"--}}
+                    {{--aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-linkedin-square fa-2x" style="color: #2a88bd"--}}
+                    {{--aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-tumblr-square fa-2x" style="color: #1f648b" aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-instagram fa-2x" style="color: #2a88bd" aria-hidden="true"></i>--}}
+                    {{--<i class="fa fa-telegram fa-2x" style="color: #2aabd2" aria-hidden="true"></i>--}}
+                    {{--</div>--}}
+                    {{--</td>--}}
+                    {{--</tr>--}}
                     {{--</table>--}}
                 </div>
             </div>

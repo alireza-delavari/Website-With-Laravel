@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
-
 Route::post('/', 'HomeController@index2');
 
 Route::get('aboutUs', 'AboutUsController@index');
@@ -29,5 +28,7 @@ Route::get('products', 'productsController@index');
 Route::get('welcome', function () {
     return view('welcome');
 });
-
+Route::get('email', function () {
+    return view('emails.email1');
+});
 //Route::post('content', array('as' => 'content', 'uses' => 'HomeController@content'));

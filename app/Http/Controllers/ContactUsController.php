@@ -45,6 +45,11 @@ class ContactUsController extends Controller
         $senderName=$request["name"];//$_POST["name"];
         $senderDescription=$request["description"];//$_POST["description"];
         $senderNumber=$request["phonenumber"];//$_POST["phonenumber"];
+        $senderFile=$request["fileAttachmet"];//$_POST["phonenumber"];
+//        $sss = $request->file('fileAttachmet');
+//        $bbb ='File Name: '.$sss->getClientOriginalName().'    File Real Path: '.$sss->getRealPath();
+//        $ccc=$sss.".".$sss->getClientOriginalExtension();
+//        return ($bbb);
 
         $mail = new \PHPMailer();
         $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -59,18 +64,20 @@ class ContactUsController extends Controller
         $mail->setFrom($senderFrom, $senderName);
         //$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
         $mail->addAddress('alirezadl.73@gmail.com');               // Name is optional
+        //$mail->addAddress($senderFrom);
         //$mail->addReplyTo('info@example.com', 'Information');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
+        $mail->addAttachment($senderFile);
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         //$mail->isHTML(true);                                  // Set email format to HTML
-
+        $emailView = \View::make('emails/email1',compact('senderName','senderNumber','senderDescription'))->render();
+        $mail->CharSet="UTF-8";
         $mail->Subject = $senderName."  ".$senderNumber;
-        //$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-        $mail->Body= $senderDescription;
-        $mail->AltBody = $senderDescription;//'This is the body in plain text for non-HTML mail clients';
+        $mail->Body= $emailView;//$senderDescription;
+        $mail->AltBody = $emailView;//'This is the body in plain text for non-HTML mail clients';
 
         $sendResult=false;
         if(!$mail->send()) {
@@ -83,7 +90,5 @@ class ContactUsController extends Controller
         }
         $data['sendResult']=$sendResult;
         return view('contactUs',$data);
-
-        //return view('contactUs');
     }
 }

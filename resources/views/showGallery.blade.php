@@ -29,10 +29,7 @@
     <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button class="myBtnClose btn btn-danger" type="button" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-                    <h3 class="modal-title">Heading</h3>
-                </div>
+
 
                 <div class="modal-body">
                     <div class="imageViewer col-xs-10">
@@ -50,7 +47,10 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-
+                <div class="modal-footer">
+                    <button class="myBtnClose btn btn-danger" type="button" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
+                    <small class="modal-title">Heading</small>
+                </div>
                 {{--<div class="modal-footer">--}}
                     {{--<button class="btn btn-default" data-dismiss="modal">Close</button>--}}
                 {{--</div>--}}
