@@ -69,7 +69,20 @@ class ContactUsController extends Controller
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
-        $mail->addAttachment($senderFile);
+        //fileAttachmet
+        if ($_FILES['fileAttachmet']['name']!="") {
+            // First handle the upload
+            // Don't trust provided filename - same goes for MIME types
+            // See http://php.net/manual/en/features.file-upload.php#114004 for more thorough upload validation
+            $uploadFile = tempnam(sys_get_temp_dir(), sha1($_FILES['fileAttachmet']['name']));
+            if (move_uploaded_file($_FILES['fileAttachmet']['tmp_name'], $uploadFile)) {
+                // Upload handled successfully
+                // Now create a message
+                // This should be somewhere in your include_path
+                $mail->addAttachment($uploadFile, 'My uploaded file');
+            }
+        }
+        //$mail->addAttachment($senderFile);
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         //$mail->isHTML(true);                                  // Set email format to HTML
