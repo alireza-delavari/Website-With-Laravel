@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
 
+    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
     {{--<link href="/css/customScrollbar2.css" rel="stylesheet" type="text/css">--}}
     {{--<link href="/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">--}}
     {{--<link type="text/css" href="/css/jquery.jscrollpane.css" rel="stylesheet" media="all"/>--}}

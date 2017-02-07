@@ -7,7 +7,7 @@
  */
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 
 class productsController extends Controller
 {
@@ -47,5 +47,51 @@ class productsController extends Controller
         $data['image'] = "/img/gallery1/($id).jpg";
         $data['description']="description $id";
         return view('showProduct', $data);
+    }
+
+
+    function registerProduct(Request $request,$id){
+
+        sleep(1);
+
+        $code = $request->input('CaptchaCode');
+        $isHuman = captcha_validate($code);
+        if(!$isHuman){
+            $messages = [
+                'CaptchaCode.required' => 'فیلد "کد امنیتی" خالی است.',
+                'CaptchaCode.valid_captcha' => 'فیلد "کد امنیتی" معتبر نیست.',
+            ];
+
+            $rules = [//inputPhone,inputEmail,inputAddress,CaptchaCode
+                'CaptchaCode'=>'bail|required|valid_captcha',
+            ];
+
+            $this->validate($request,$rules,$messages);
+        }
+        $messages = [
+            'inputName.required' => 'فیلد "نام و نام خانوادگی" خالی است.',
+            'inputEmail.required' => 'فیلد "ایمیل" خالی است.',
+            'inputMeter.required' => 'فیلد "متراژ مورد نیاز" خالی است.',
+            'inputMeter.numeric' => 'فیلد "متراژ مورد نیاز" معتبر نیست.',
+            'inputEmail.email' => 'فیلد "ایمیل" معتبر نیست.',
+            'inputPhone.numeric' => 'فیلد "شماره تماس" معتبر نیست.',
+            'inputPhone.regex' => 'فیلد "شماره تماس" معتبر نیست.',
+            'inputPhone.required' => 'فیلد "شماره تماس" خالی است.',
+            'inputAddress.required' => 'فیلد "توضیحات" خالی است.',
+            'inputAddress.max' => 'فیلد "توضیحات" باید کمتر از :max کاراکتر باشد.',
+            'CaptchaCode.required' => 'فیلد "کد امنیتی" خالی است.',
+            'CaptchaCode.valid_captcha' => 'فیلد "کد امنیتی" معتبر نیست.',
+        ];
+
+        $rules = [//inputPhone,inputEmail,inputAddress,CaptchaCode
+            'CaptchaCode'=>'bail|required|valid_captcha',
+            'inputName'=>'required',
+            'inputMeter'=>'required|numeric',
+            'inputPhone'=>'required|numeric|regex:/^(0)[0-9]{10}$/',
+            'inputEmail'=>'required|email',
+            'inputAddress'=>'required|max:800',
+        ];
+
+        $this->validate($request,$rules,$messages);
     }
 }

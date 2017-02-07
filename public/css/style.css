@@ -167,7 +167,7 @@ glyphicon-home {
 
 
 .mainItemContainer {
-    background-color: ghostwhite;
+    background-color: whitesmoke;
     margin-top: 15px;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -248,7 +248,7 @@ footer {
     color: white;
     margin-top: 50px;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
 }
 
 footer hr {
@@ -259,6 +259,7 @@ footer hr {
 
 .hr2 {
     border-color: #5ca9ff;
+    margin-bottom: 7px;
 }
 
 footer a {
@@ -284,8 +285,8 @@ footer input[type=email] {
     margin-bottom: 5px;
 }
 
-div[class^='col-'], div[class*=' col-'] {
-    float: right;
+*[class^='col-'], *[class*=' col-'] {
+    float: right !important;
 }
 
 .blur {
@@ -302,6 +303,7 @@ div[class^='col-'], div[class*=' col-'] {
 
 .bottomCopyRight {
     text-align: center;
+    font-size: 12px;
 }
 
 .modal-body{
@@ -346,7 +348,6 @@ div[class^='col-'], div[class*=' col-'] {
     .allImages {
         height: 280px;
     }
-
 
 }
 @media only screen and (max-width:480px ){
@@ -409,7 +410,7 @@ div[class^='col-'], div[class*=' col-'] {
     width: 100%;
 }
 
-.callusinfo {
+.callusinfo,.generalInfo {
     border-radius: 5px 5px 5px 5px;
     background-color: rgba(0, 0, 250, 0.1);
     padding: 20px;
@@ -447,4 +448,7 @@ div[class^='col-'], div[class*=' col-'] {
 .productDescriptorText{
     /*height: 300px;*/
     color: white;
+}
+.productInfo{
+    padding:0px 20px;
 }

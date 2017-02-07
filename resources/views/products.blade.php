@@ -10,7 +10,7 @@
 
             @foreach($products as $product)
                 <div class="myItem productImg">
-                    <a title="image">
+                    <a title="image" data-title="{{url("products",$product["id"])}}" >
                         <img class="thumbnail blur" data-title="{{$product["description"] or "default"}}" src="{{$product["image"] or "default.jpg"}}">
                     </a>
                 </div>

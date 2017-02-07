@@ -178,6 +178,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //added by myself
+        LaravelCaptcha\Providers\LaravelCaptchaServiceProvider::class,
+
     ],
 
     /*

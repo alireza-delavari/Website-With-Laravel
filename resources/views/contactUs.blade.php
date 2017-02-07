@@ -12,27 +12,29 @@
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">نام و نام خانوادگی:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="text" name="name" placeholder="نام و نام خانوادگی" value="{{old('name')}}">
+                            <input type="text" class="form-control" name="name" placeholder="نام و نام خانوادگی"
+                                   value="{{old('name')}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">شماره تماس:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="tel" name="phonenumber" placeholder="شماره تماس"
+                            <input type="tel" class="form-control" name="phonenumber" placeholder="شماره تماس"
                                    value="{{old('phonenumber')}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">ایمیل:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <input type="email" name="email" required="required" placeholder="ایمیل"
+                            <input type="email" name="email" class="form-control" required="required"
+                                   placeholder="ایمیل"
                                    value="{{old('email')}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">توضیحات:</div>
                         <div class="col-sm-6 col-xs-12">
-                            <textarea name="description">{{old('description')}}</textarea>
+                            <textarea name="description" class="form-control">{{old('description')}}</textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -40,14 +42,24 @@
                         <div class="col-sm-6 col-xs-12">
                             <label class="btn btn-primary btn-block btnFile">
                                 انتخاب فایل
-                                <input type="file" style="display:none;" name="fileAttachmet" placeholder="فایل"
+                                <input type="file" style="display:none;" id="fileAttachmet" name="fileAttachmet"
+                                       placeholder="فایل"
                                        value="{{old('fileAttachmet')}}">
+                                <span class="fa fa-paperclip chooseFileIcon" style="display: none"/>
                             </label>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-6 col-xs-12">کد امنیتی:</div>
+                        <div class="col-sm-6 col-xs-12">
+                            {!! captcha_image_html('ExampleCaptcha') !!}
+                            <input type="text" name="CaptchaCode" id="CaptchaCode" style="margin-top: 3px" class="form-control"
+                                   required="required" placeholder="کد امنیتی" >
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12 col-xs-12 col-md-12" style="text-align: center">
-                            <input type="submit" class="btn btn-success" id="callusFormSubmit" value="ارسال">
+                            <input type="submit" class="btn btn-success" id="formSubmit" value="ارسال">
                             <input type="reset" class="btn btn-warning" value="پاک کردن">
                             <div class="formLoading" style="display: none">
                                 <img src="/img/loading.gif">

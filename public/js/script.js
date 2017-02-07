@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     //scroll bar
     //$("html").niceScroll();
-    $("body").niceScroll({scrollspeed: 60, mousescrollstep: 60});
-    $(".allImages").niceScroll({railalign: 'left',railpadding: { top: 10, right: 3, left: 0, bottom: 0 }});
+    //$("body").niceScroll({scrollspeed: 60, mousescrollstep: 60});
+    $(".allImages").niceScroll({railalign: 'left', railpadding: {top: 10, right: 3, left: 0, bottom: 0}});
 
 
     $('.thumbnail').click(function () {
@@ -29,12 +29,12 @@ $(document).ready(function () {
     //products Descriptor
     $('.productImg').click(function () {
         var p = $(this);
-        var offset = p.offset();
-        var top = offset.top;
+        var offset = p.offset().top;
+        var top = offset;//.top;
         var elements = $(".productImg");
         var doneFlag = false;
         $.each(elements, function (i, element) {
-            if (element.offsetTop > top) {
+            if ($(element).offset().top > top) {
                 var pre = $($(element).prev()[0]);
                 $($(".productDescriptor")[0]).slideUp(500, function () {
                     $($(".productDescriptor")[0]).stop();
@@ -42,6 +42,8 @@ $(document).ready(function () {
                     $('.productDescriptorText').empty();
                     $($(".productDescriptor")[0]).insertAfter(pre);
                     $(p.html()).appendTo('.productDescriptorImage');
+                    var linkAddress = $(".productDescriptorImage").find('a').attr("data-title");
+                    $(".productDescriptorImage").find('a').attr("href",linkAddress);
                     $("<p>" + $(p.find("img")[0]).attr("data-title") + "</p>").appendTo('.productDescriptorText')
                     $('.productDescriptorImage').hide();
                     $('.productDescriptorImage').fadeIn(1000);
@@ -61,6 +63,8 @@ $(document).ready(function () {
                 $('.productDescriptorText').empty();
                 $($(".productDescriptor")[0]).insertAfter(last);
                 $(p.html()).appendTo('.productDescriptorImage');
+                var linkAddress = $(".productDescriptorImage").find('a').attr("data-title");
+                $(".productDescriptorImage").find('a').attr("href",linkAddress);
                 $("<p>" + $(p.find("img")[0]).attr("data-title") + "</p>").appendTo('.productDescriptorText')
                 $('.productDescriptorImage').hide();
                 $('.productDescriptorImage').fadeIn(1000);
@@ -74,9 +78,8 @@ $(document).ready(function () {
     });
 
 
-    //callusFormSubmit
-
-    $("#callusFormSubmit").click(function () {
+    //formSubmit
+    $("#formSubmit").click(function () {
         //$(this).parents('form').checkValidity();
         $(this).parents('form').submit();
         //$(".callusForm").disable()
@@ -85,5 +88,15 @@ $(document).ready(function () {
         $(".callusForm textarea").attr('disabled', 'disabled');
         $(".formLoading").show(500);
     });
+
+    //fileAttachmet
+    if (document.getElementById('fileAttachmet') != null) {
+        document.getElementById('fileAttachmet').onchange = function () {
+            var files = $("#fileAttachmet")[0].files;
+            if (files.length != 0) {
+                $('.chooseFileIcon').show();
+            }
+        };
+    }
 
 });
