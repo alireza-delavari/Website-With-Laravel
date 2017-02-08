@@ -131,9 +131,9 @@
                 <div class="footerColumn">
                     <p> برای عضویت در خبرنامه ایمیل خود را ثبت کنید. </p>
                     <form method="post" action="#">
-                        <input name="email" type="email">
+                        <input name="email" class="form-control" type="email">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit" class="btn-success btn" value="ثبت نام">
+                        <input type="submit" class="btn-success btn btn-block" value="ثبت نام">
                     </form>
                 </div>
             </div>

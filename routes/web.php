@@ -31,6 +31,6 @@ Route::get('welcome', function () {
     return view('welcome');
 });
 Route::get('email', function () {
-    return view('emails.email1');
+    return view('emails.email2');
 });
 //Route::post('content', array('as' => 'content', 'uses' => 'HomeController@content'));

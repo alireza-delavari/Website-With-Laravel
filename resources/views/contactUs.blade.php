@@ -49,9 +49,10 @@
                             </label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-6 col-xs-12">کد امنیتی:</div>
-                        <div class="col-sm-6 col-xs-12">
+                        <div id="captcha_holder" class="col-sm-6 col-xs-12">
                             {!! captcha_image_html('ExampleCaptcha') !!}
                             <input type="text" name="CaptchaCode" id="CaptchaCode" style="margin-top: 3px" class="form-control"
                                    required="required" placeholder="کد امنیتی" >
@@ -76,7 +77,7 @@
                                 <div style="margin-top: 5px;" class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
+                                            <li style="list-style: none">{{ $error }}</li>
                                         @endforeach
                                     </ul>
                                 </div>

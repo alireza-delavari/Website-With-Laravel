@@ -21,6 +21,22 @@ class ContactUsController extends Controller
     function sendEmail(Request $request){
 
         require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+
+        $code = $request->input('CaptchaCode');
+        $isHuman = captcha_validate($code);
+        if(!$isHuman){
+            $messages = [
+                'CaptchaCode.required' => 'فیلد "کد امنیتی" خالی است.',
+                'CaptchaCode.valid_captcha' => 'فیلد "کد امنیتی" معتبر نیست.',
+            ];
+
+            $rules = [//inputPhone,inputEmail,inputAddress,CaptchaCode
+                'CaptchaCode'=>'bail|required|valid_captcha',
+            ];
+
+            $this->validate($request,$rules,$messages);
+        }
+
         $messages = [
             'name.required' => 'فیلد "نام و نام خانوادگی" خالی است.',
             'email.required' => 'فیلد "ایمیل" خالی است.',
@@ -86,7 +102,7 @@ class ContactUsController extends Controller
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         //$mail->isHTML(true);                                  // Set email format to HTML
-        $emailView = \View::make('emails/email1',compact('senderName','senderNumber','senderDescription'))->render();
+        $emailView = \View::make('emails/email2',compact('senderName','senderNumber','senderFrom','senderDescription'))->render();
         $mail->CharSet="UTF-8";
         $mail->Subject = $senderName."  ".$senderNumber;
         $mail->Body= $emailView;//$senderDescription;

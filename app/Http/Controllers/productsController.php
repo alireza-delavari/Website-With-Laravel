@@ -52,8 +52,6 @@ class productsController extends Controller
 
     function registerProduct(Request $request,$id){
 
-        sleep(1);
-
         $code = $request->input('CaptchaCode');
         $isHuman = captcha_validate($code);
         if(!$isHuman){
@@ -77,21 +75,55 @@ class productsController extends Controller
             'inputPhone.numeric' => 'فیلد "شماره تماس" معتبر نیست.',
             'inputPhone.regex' => 'فیلد "شماره تماس" معتبر نیست.',
             'inputPhone.required' => 'فیلد "شماره تماس" خالی است.',
-            'inputAddress.required' => 'فیلد "توضیحات" خالی است.',
-            'inputAddress.max' => 'فیلد "توضیحات" باید کمتر از :max کاراکتر باشد.',
-            'CaptchaCode.required' => 'فیلد "کد امنیتی" خالی است.',
-            'CaptchaCode.valid_captcha' => 'فیلد "کد امنیتی" معتبر نیست.',
+            'inputAddress.required' => 'فیلد "آدرس" خالی است.',
+            'inputAddress.max' => 'فیلد "آدرس" باید کمتر از :max کاراکتر باشد.',
         ];
-
         $rules = [//inputPhone,inputEmail,inputAddress,CaptchaCode
-            'CaptchaCode'=>'bail|required|valid_captcha',
+
             'inputName'=>'required',
             'inputMeter'=>'required|numeric',
             'inputPhone'=>'required|numeric|regex:/^(0)[0-9]{10}$/',
             'inputEmail'=>'required|email',
             'inputAddress'=>'required|max:800',
         ];
-
         $this->validate($request,$rules,$messages);
+
+        require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+
+        $senderFrom=$request["inputEmail"];
+        $senderName=$request["inputName"];
+        $senderAddress=$request["inputAddress"];
+        $senderNumber=$request["inputPhone"];
+        $sendMeter=$request["inputMeter"];
+
+        $mail = new \PHPMailer();
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        //user pass
+        $mail->Username = 'alireza.delavari2@gmail.com';
+        $mail->Password = "alireza09216252866";
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom($senderFrom, $senderName);
+        $mail->addAddress('alirezadl.73@gmail.com');
+        $mail->addAddress($senderFrom);
+
+        $emailView = \View::make('emails/email2',compact('senderName','senderNumber','senderFrom','senderAddress'))->render();
+        $mail->CharSet="UTF-8";
+        $mail->Subject = $senderName."  ".$senderNumber;
+        $mail->Body= $emailView;
+        $mail->AltBody = $emailView;
+        $sendResult=false;
+        if(!$mail->send()) {
+            $sendResult=false;
+        } else {
+            $sendResult=true;
+        }
+        $data['sendResult']=$sendResult;
+        $showProductView = $this->showProduct($id);
+        return $showProductView->with('sendResult',$sendResult);
+        //return view("products/$id",$data);
     }
 }

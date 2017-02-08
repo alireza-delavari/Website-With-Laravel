@@ -15,8 +15,15 @@ return [
         'CodeLength' => 5,
         'ImageWidth' => 170,
         'ImageHeight' => 50,
-
-    ],
+        'SoundEnabled' => false,
+//        'ReloadEnabled' => false,
+        'UseSmallIcons' => true,
+//        'UseHorizontalIcons' => true,
+//        'ReloadIconUrl' => '/img/Logo.png',
+//        'SoundIconUrl' => '../../images/custom-sound-icon.gif'
+//        'HelpLinkEnabled' => false,
+//        'AdditionalInlineCss' => 'border: 24px solid #fff',
+],
 
     /*
     |--------------------------------------------------------------------------

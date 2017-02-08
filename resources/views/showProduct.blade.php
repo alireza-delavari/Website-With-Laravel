@@ -43,46 +43,46 @@
             {{--<div class="clearfix hidden-md hidden-lg"></div>--}}
             <div class="col-md-6 col-sm-12 col-xs-12 ">
                 <div class="generalInfo">
-                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal " action="" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
                             <label for="inputName" class="col-sm-4 col-xs-12 control-label">نام و نام خانوادگی</label>
                             <div class="col-sm-8 col-xs-12">
-                                <input type="text" class="form-control" name="inputName" id="inputName"
+                                <input type="text" class="form-control" name="inputName" value="{{old('inputName')}}" id="inputName"
                                        placeholder="نام و نام خانوادگی">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputMeter" class="col-sm-4 col-xs-12 control-label">متراژ مورد نیاز</label>
                             <div class="col-sm-8 col-xs-12">
-                                <input type="number" class="form-control" name="inputMeter" id="inputMeter"
+                                <input type="number" class="form-control" name="inputMeter" value="{{old('inputMeter')}}" id="inputMeter"
                                        placeholder="متراژ مورد نیاز">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputPhone" class="col-sm-4 col-xs-12 control-label">شماره تماس</label>
                             <div class="col-sm-8 col-xs-12">
-                                <input type="tel" class="form-control" name="inputPhone" id="inputPhone"
+                                <input type="tel" class="form-control" name="inputPhone" value="{{old('inputPhone')}}" id="inputPhone"
                                        placeholder="شماره تماس">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputEmail" class="col-sm-4 col-xs-12 control-label">ایمیل</label>
                             <div class="col-sm-8 col-xs-12">
-                                <input type="email" class="form-control" name="inputEmail" id="inputEmail"
+                                <input type="email" class="form-control" name="inputEmail" value="{{old('inputEmail')}}" id="inputEmail"
                                        placeholder="ایمیل">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputAddress" class="col-sm-4 col-xs-12 control-label">آدرس</label>
                             <div class="col-sm-8 col-xs-12">
-                            <textarea class="form-control" name="inputAddress" id="inputAddress" rows="3"
+                            <textarea class="form-control" name="inputAddress" value="{{old('inputAddress')}}" id="inputAddress" rows="3"
                                       placeholder="آدرس"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputCaptcha" class="col-sm-4 col-xs-12 control-label">کد امنیتی</label>
-                            <div class="col-sm-8 col-xs-12">
+                            <div id="captcha_holder" class="col-sm-8 col-xs-12">
                                 {!! captcha_image_html('ExampleCaptcha') !!}
                                 <input type="text" class="form-control" required="required" name="CaptchaCode" style="margin-top: 3px" id="CaptchaCode"
                                        placeholder="کد امنیتی">
@@ -92,22 +92,22 @@
                             <div class="col-sm-4"></div>
                             <div class="col-sm-8 col-xs-12">
                                 <button type="submit" id="formSubmit" class="btn btn-success btn-block">ارسال</button>
-                                <div class="formLoading" style="display: none">
+                                <div class="formLoading" style="text-align: center;display: none">
                                     <img src="/img/loading.gif">
                                 </div>
                                 @if(isset($sendResult))
                                     @if($sendResult)
-                                        <p style="margin-top: 10px;" class="alert alert-success">ارسال شد</p>
+                                        <p style="margin-top: 10px; text-align: center" class="alert alert-success">ارسال شد</p>
                                     @endif
                                     @if(!$sendResult)
-                                        <p style="margin-top: 10px;" class="alert alert-danger">ارسال نشد</p>
+                                        <p style="margin-top: 10px;text-align: center" class="alert alert-danger">ارسال نشد</p>
                                     @endif
                                 @endif
                                 @if (count($errors) > 0)
-                                    <div style="margin-top: 5px;" class="alert alert-danger">
+                                    <div style="margin-top: 5px; " class="alert alert-danger">
                                         <ul>
                                             @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
+                                                <li style="list-style: none">{{ $error }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
