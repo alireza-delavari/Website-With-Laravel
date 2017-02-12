@@ -4,6 +4,7 @@ $(document).ready(function () {
     //$("html").niceScroll();
     //$("body").niceScroll({scrollspeed: 60, mousescrollstep: 60});
     $(".allImages").niceScroll({railalign: 'left', railpadding: {top: 10, right: 3, left: 0, bottom: 0}});
+    $(".productSliderItemContainer").niceScroll({railpadding: {top: 0, right: 0, left: 0, bottom: -5},rtlmode: "ltr",scrollspeed: 50,mousescrollstep: 70});
 
 
     $('.thumbnail').click(function () {
@@ -104,5 +105,56 @@ $(document).ready(function () {
 
     //captcha
     $('#captcha_holder a:first').remove();
+
+
+    //productSlider
+    $(".productSliderItem").click(function () {
+        //productSliderImgContainer
+        var pimg=$(this).find("img").attr("src");
+        var thisItem=$(this);
+        $(".productSliderImgContainer").find("img").fadeOut(500,function () {
+            $(".productSliderImgContainer").find("img").attr("src",pimg);
+            $(".productSliderImgContainer").find("img").fadeIn(500);
+            //var pScrollBar = $(".productSliderItemContainer");
+            //console.log($(thisItem).scrollLeft);
+            thisItem.addClass('prductItemactive');
+            //pScrollBar.scrollLeft(thisItem.scrollLeft());
+        });
+    });
+    $('.productSliderAllProductsInner .left').click(function () {
+        var pScrollBar = $(".productSliderItemContainer");
+        pScrollBar.scrollLeft(pScrollBar.scrollLeft()-100);
+    });
+    $('.productSliderAllProductsInner .right').click(function () {
+        console.log("left");
+        var pScrollBar = $(".productSliderItemContainer");
+        pScrollBar.scrollLeft(pScrollBar.scrollLeft()+100);
+    });
+
+
+    // $("#content-slider").lightSlider({
+    //     loop:true,
+    //     keyPress:true
+    // });
+
+
+
+    // $('#myCarousel4').carousel({
+    //     interval: 40000
+    // });
+    // $('.productSliderAllProducts .carousel .item').each(function(){
+    //     var next = $(this).next();
+    //     if (!next.length) {
+    //         next = $(this).siblings(':first');
+    //     }
+    //     next.children(':first-child').clone().appendTo($(this));
+    //     if (next.next().length>0) {
+    //
+    //         next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+    //     }
+    //     else {
+    //         $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+    //     }
+    // });
 
 });

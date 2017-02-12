@@ -6,12 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/font/font-awesome-4.7.0/css/font-awesome.min.css">
+    {{--<link type="text/css" rel="stylesheet" href="/css/lightslider.css" />--}}
 
     <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
     {{--<link href="/css/customScrollbar2.css" rel="stylesheet" type="text/css">--}}
     {{--<link href="/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">--}}
     {{--<link type="text/css" href="/css/jquery.jscrollpane.css" rel="stylesheet" media="all"/>--}}
     <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <style>
+        ul{
+            list-style: none outside none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .demo .item{
+            margin-bottom: 60px;
+        }
+        .content-slider li{
+            background-color: #ed3020;
+            text-align: center;
+            color: #FFF;
+        }
+        .content-slider h3 {
+            margin: 0;
+            padding: 70px 0;
+        }
+        .demo{
+            width: 800px;
+        }
+    </style>
 
 </head>
 <body>
@@ -91,7 +114,6 @@
     </div>
 </nav>
 
-
 <div id="mainContent">
     @yield('content')
 </div>
@@ -130,7 +152,7 @@
                 <hr>
                 <div class="footerColumn">
                     <p> برای عضویت در خبرنامه ایمیل خود را ثبت کنید. </p>
-                    <form method="post" action="#">
+                    <form method="post" action="/">
                         <input name="email" class="form-control" type="email">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="btn-success btn btn-block" value="ثبت نام">
@@ -182,8 +204,10 @@
 {{--<!-- the jScrollPane script -->--}}
 {{--<script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>--}}
 
-<script src="/js/script.js"></script>
 <script src="/js/jquery.nicescroll.min.js"></script>
+{{--<script src="/js/lightslider.js"></script>--}}
+<script src="/js/script.js"></script>
+
 {{--<script src=" http://areaaperta.com/nicescroll/js/jquery.nicescroll.plus.js"></script>--}}
 <script>
 </script>

@@ -14,27 +14,28 @@ class ContactUsController extends Controller
 
     function index()
     {
-
         return view('contactUs');
+
     }
 
-    function sendEmail(Request $request){
+    function sendEmail(Request $request)
+    {
 
         require '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
         $code = $request->input('CaptchaCode');
         $isHuman = captcha_validate($code);
-        if(!$isHuman){
+        if (!$isHuman) {
             $messages = [
                 'CaptchaCode.required' => 'فیلد "کد امنیتی" خالی است.',
                 'CaptchaCode.valid_captcha' => 'فیلد "کد امنیتی" معتبر نیست.',
             ];
 
             $rules = [//inputPhone,inputEmail,inputAddress,CaptchaCode
-                'CaptchaCode'=>'bail|required|valid_captcha',
+                'CaptchaCode' => 'bail|required|valid_captcha',
             ];
 
-            $this->validate($request,$rules,$messages);
+            $this->validate($request, $rules, $messages);
         }
 
         $messages = [
@@ -49,19 +50,19 @@ class ContactUsController extends Controller
         ];
 
         $rules = [
-            'name'=>'required',
-            'email'=>'required|email',
-            'description'=>'required|max:600',
-            'phonenumber'=>'required|numeric|regex:/^(0)[0-9]{10}$/',
+            'name' => 'required',
+            'email' => 'required|email',
+            'description' => 'required|max:600',
+            'phonenumber' => 'required|numeric|regex:/^(0)[0-9]{10}$/',
         ];
-        $this->validate($request,$rules,$messages);
+        $this->validate($request, $rules, $messages);
 
 
-        $senderFrom=$request["email"];//$_POST["email"];
-        $senderName=$request["name"];//$_POST["name"];
-        $senderDescription=$request["description"];//$_POST["description"];
-        $senderNumber=$request["phonenumber"];//$_POST["phonenumber"];
-        $senderFile=$request["fileAttachmet"];//$_POST["phonenumber"];
+        $senderFrom = $request["email"];//$_POST["email"];
+        $senderName = $request["name"];//$_POST["name"];
+        $senderDescription = $request["description"];//$_POST["description"];
+        $senderNumber = $request["phonenumber"];//$_POST["phonenumber"];
+        $senderFile = $request["fileAttachmet"];//$_POST["phonenumber"];
 //        $sss = $request->file('fileAttachmet');
 //        $bbb ='File Name: '.$sss->getClientOriginalName().'    File Real Path: '.$sss->getRealPath();
 //        $ccc=$sss.".".$sss->getClientOriginalExtension();
@@ -86,7 +87,16 @@ class ContactUsController extends Controller
         //$mail->addBCC('bcc@example.com');
 
         //fileAttachmet
-        if ($_FILES['fileAttachmet']['name']!="") {
+        //$mail->addAttachment($senderFile);
+
+
+        $ext = pathinfo($_FILES['fileAttachmet']['name'], PATHINFO_EXTENSION);
+        $acceptExt = array("jpg", "rar", "zip");
+        //$acceptFileName="":  return redirect()->back()->withErrors(['erorr'=>'Somthing went wrong'])->withInput();
+        if ($_FILES['fileAttachmet']['name'] != "" && ($_FILES['fileAttachmet']['size'] > 6000000 || !in_array($ext, $acceptExt))) {
+            return redirect()->back()->withErrors(['error' => 'فایل انتخاب شده معتبر نیست'])->withInput();
+        }
+        elseif ($_FILES['fileAttachmet']['name'] != "") {
             // First handle the upload
             // Don't trust provided filename - same goes for MIME types
             // See http://php.net/manual/en/features.file-upload.php#114004 for more thorough upload validation
@@ -98,26 +108,25 @@ class ContactUsController extends Controller
                 $mail->addAttachment($uploadFile, 'My uploaded file');
             }
         }
-        //$mail->addAttachment($senderFile);
         //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
         //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
         //$mail->isHTML(true);                                  // Set email format to HTML
-        $emailView = \View::make('emails/email2',compact('senderName','senderNumber','senderFrom','senderDescription'))->render();
-        $mail->CharSet="UTF-8";
-        $mail->Subject = $senderName."  ".$senderNumber;
-        $mail->Body= $emailView;//$senderDescription;
+        $emailView = \View::make('emails/email2', compact('senderName', 'senderNumber', 'senderFrom', 'senderDescription'))->render();
+        $mail->CharSet = "UTF-8";
+        $mail->Subject = $senderName . "  " . $senderNumber;
+        $mail->Body = $emailView;//$senderDescription;
         $mail->AltBody = $emailView;//'This is the body in plain text for non-HTML mail clients';
 
-        $sendResult=false;
-        if(!$mail->send()) {
-            $sendResult=false;
+        $sendResult = false;
+        if (!$mail->send()) {
+            $sendResult = false;
 //            echo 'Message could not be sent.';
 //            echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $sendResult=true;
+            $sendResult = true;
 //            echo 'Message has been sent';
         }
-        $data['sendResult']=$sendResult;
-        return view('contactUs',$data);
+        $data['sendResult'] = $sendResult;
+        return view('contactUs', $data);
     }
 }

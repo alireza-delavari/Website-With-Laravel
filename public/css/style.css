@@ -164,8 +164,6 @@ glyphicon-home {
     min-height: 350px;
 }
 
-
-
 .mainItemContainer {
     background-color: whitesmoke;
     margin-top: 15px;
@@ -193,6 +191,13 @@ glyphicon-home {
     text-decoration: none;
 }
 
+.myItem img {
+    width: 200px;
+    height: 150px;
+    -webkit-box-shadow: 1px 2px 4px #111;
+    box-shadow: 1px 2px 4px #111;
+}
+
 .myItemBorder {
 
 }
@@ -206,11 +211,65 @@ glyphicon-home {
     box-shadow: 1px 2px 2px #111;
 }
 
-.myItem img {
-    width: 200px;
-    height: 150px;
-    -webkit-box-shadow: 1px 2px 4px #111;
-    box-shadow: 1px 2px 4px #111;
+.myItem3{
+    width: 220px;
+    /*height: 150px;*/
+    margin: 5px;
+    vertical-align: top;
+    display: inline-block;
+
+    border: 2px solid lightgray;
+    border-bottom: 2px ridge lightgray;
+    background-color: #a0e0FF;
+    border-radius: 40px 1px 1px 1px;
+    -webkit-box-shadow: 1px 2px 2px #111;
+    box-shadow: 1px 2px 2px #111;
+
+}
+
+/*main page productSlider*/
+.productSliderImgContainer {
+    height: 300px;
+    margin-bottom: 5px;
+}
+
+.productSliderImgContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.productSliderAllProducts{
+    padding: 0px 8% 0px 8%;
+}
+.productSliderAllProducts img {
+    width: 80PX !important;
+    height: 80px !important;
+}
+.productSliderAllProducts .glyphicon-chevron-right,.productSliderAllProducts .glyphicon-chevron-left{
+    top: 40% !important;
+
+}
+
+.productSliderAllProductsInner{
+    padding: 0px 7% 0px 7%;
+}
+.productSliderAllProductsInner .carousel-control {
+    opacity: 0.2;
+    width: 7% !important;
+}
+.productSliderItemContainer{
+    text-align: center;
+    overflow: auto;
+}
+
+.productSliderItem{
+    display: table-cell;
+    padding-left: 5px;
+}
+
+.prductItemactive{
+    border: 2px solid white;
+    box-shadow: 1px 1px 1px 1px gray;
 }
 
 .bigHr {
@@ -219,24 +278,25 @@ glyphicon-home {
 }
 
 /*slider*/
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+#myCarousel .carousel-inner > .item > img,
+#myCarousel .carousel-inner > .item > a > img {
     width: 100%;
     max-height: 400px;
     margin: auto;
 }
 
-.carousel-control{
+#myCarousel .carousel-control {
     opacity: 0.1;
     width: 10% !important;
 }
-.carousel-control:hover{
-    opacity: 0.1!important;
-}
-.carousel-control:focus{
-    opacity: 0.1!important;
+
+.carousel-control:hover {
+    opacity: 0.1 !important;
 }
 
+.carousel-control:focus {
+    opacity: 0.1 !important;
+}
 
 #myCarousel {
     border-radius: 5px 5px 5px 50px;
@@ -306,66 +366,75 @@ footer input[type=email] {
     font-size: 12px;
 }
 
-.modal-body{
+.modal-body {
     padding: 0px;
     padding-top: 10px;
     padding-left: 7px;
 }
+
 .modal-content {
     background-color: #222222;
     color: white;
     margin: 0 auto;
 }
 
-.modal-footer{
+.modal-footer {
     padding: 8px;
     padding-right: 15px;
 }
-.modal-title{
+
+.modal-title {
     margin-right: 20px;
     margin-top: 10px;
 }
+
 .imageViewer img {
     width: 100%;
     height: 300px;
     padding-left: 2px;
     margin-bottom: 10px;
 }
-.imageViewer{
+
+.imageViewer {
     padding-left: 5px;
 }
+
 .allImages {
     height: 300px;
     overflow: auto;
     padding-left: 5px;
     padding-right: 2px;
 }
+
 /*1200ld 992md 768sm 480xs 320exs*/
-@media only screen and (max-width:768px ){
+@media only screen and (max-width: 768px ) {
     .imageViewer img {
         height: 280px;
     }
+
     .allImages {
         height: 280px;
     }
 
 }
-@media only screen and (max-width:480px ){
+
+@media only screen and (max-width: 480px ) {
     .imageViewer img {
         height: 200px;
     }
+
     .allImages {
         height: 200px;
     }
 
-    .callusForm input,.btnFile{
+    .callusForm input, .btnFile {
         max-width: 160px;
     }
-    .callusForm textarea{
+
+    .callusForm textarea {
         max-width: 160px;
     }
 }
-
 
 .modal-content .myBtnClose {
     color: white;
@@ -374,7 +443,8 @@ footer input[type=email] {
     text-gn: center;
     margin-left: 5px;
 }
-.myBtnClose .glyphicon{
+
+.myBtnClose .glyphicon {
     vertical-align: middle;
 }
 
@@ -383,9 +453,10 @@ footer input[type=email] {
     padding: 0px;
 }
 
-.myThumbnailActive{
+.myThumbnailActive {
     padding: 3px !important;
 }
+
 .callusForm {
     background-color: rgba(0, 0, 250, 0.1);
     border-radius: 5px 5px 5px 5px;
@@ -393,40 +464,43 @@ footer input[type=email] {
     margin-bottom: 5px;
     box-shadow: 1px 1px 5px gray;
 }
-.callusForm .row{
+
+.callusForm .row {
     padding: 8px 0px;
 }
 
-.callusForm input,.btnFile{
+.callusForm input, .btnFile {
     max-width: 192px;
     width: 100%;
-    text-align:center;
+    text-align: center;
 }
 
-
-
-.callusForm textarea{
+.callusForm textarea {
     max-width: 192px;
     width: 100%;
 }
 
-.callusinfo,.generalInfo {
+.callusinfo, .generalInfo {
     border-radius: 5px 5px 5px 5px;
     background-color: rgba(0, 0, 250, 0.1);
     padding: 20px;
     margin-bottom: 5px;
     box-shadow: 1px 1px 5px gray;
 }
-.callusinfo table td{
+
+.callusinfo table td {
     padding: 8px 50px;
     text-align: center;
 }
-.callusinfo table{
+
+.callusinfo table {
     margin: 0 auto;
 }
+
 .aboutCompany {
 
 }
+
 .productDescriptor {
     width: 100%;
     /*height: 300px;*/
@@ -437,20 +511,34 @@ footer input[type=email] {
     padding: 15px;
     margin-bottom: 10px;
 }
+
 .productDescriptorImage {
     /*height: 300px;*/
     margin-bottom: 10px;
 }
-.productDescriptorImage img{
+
+.productDescriptorImage img {
     width: 200px;
     height: 150px;
     margin: 0 auto;
 }
-.productDescriptorText{
+
+.productDescriptorText {
     /*height: 300px;*/
     color: black;
 }
-.productInfo table{
+
+.productInfo table {
     /*padding:0px 20px;*/
     box-shadow: 1px 1px 2px 0px gray;
 }
+
+
+/*-------productSlider-------------*/
+/*#mycarousel4 .carousel-inner .active.left { left: -33%; }*/
+/*#mycarousel4 .carousel-inner .next        { left:  33%; }*/
+/*#mycarousel4 .carousel-inner .prev        { left: -33%; }*/
+/*#mycarousel4 .carousel-control.left,.carousel-control.right {background-image:none;}*/
+/*#mycarousel4 .item:not(.prev) {visibility: visible;}*/
+/*#mycarousel4 .item.right:not(.prev) {visibility: hidden;}*/
+/*#mycarousel4 .rightest{ visibility: visible;}*/
