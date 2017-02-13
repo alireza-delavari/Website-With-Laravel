@@ -158,12 +158,14 @@ $(document).ready(function () {
 
     });
     setInterval(function () {
-        if ($(".prductItemactive").next().length > 0)
-            var n = $(".prductItemactive").next();
-        else
-            var n = $(".prductItemactive").parent().children().filter(':first');
-        changeProductSliderItem(n)
-        $(".productSliderItemContainer").scrollLeft($(".prductItemactive").position().left);
+        if($(".prductItemactive").length>0) {
+            if ($(".prductItemactive").next().length > 0)
+                var n = $(".prductItemactive").next();
+            else
+                var n = $(".prductItemactive").parent().children().filter(':first');
+            changeProductSliderItem(n)
+            $(".productSliderItemContainer").scrollLeft($(".prductItemactive").position().left);
+        }
     },5000);
 
     // $("#content-slider").lightSlider({
