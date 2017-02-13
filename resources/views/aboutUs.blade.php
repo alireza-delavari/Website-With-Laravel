@@ -6,18 +6,18 @@
 
     <div class="container mainItemContainer">
         <div class="row">
-            <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="callusinfo">
+            {{--<div class="col-md-6 col-sm-12 col-xs-12">--}}
+                {{--<div class="callusinfo">--}}
                     {{-- http://map.parsijoo.ir/API.html?lat=33.91074606699266&lon=50.451604203504374&zoom=17&m=1 --}}
                     {{--<object type='type/html' data='http://map.parsijoo.ir/API.html?lat=33.91074606699266&lon=50.451604203504374&zoom=17&m=1' style="width: 100%;height: 300px;"></object>--}}
-                    <iframe src='http://map.parsijoo.ir/API.html?lat=33.91119529388772&lon=50.45237027983929&zoom=16&m=1' style="width: 100%;height: 300px;"></iframe>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 col-xs-12">
+                    {{--<iframe src='http://map.parsijoo.ir/API.html?lat=33.91119529388772&lon=50.45237027983929&zoom=16&m=1' style="width: 100%;height: 300px;"></iframe>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="callusinfo aboutCompany">
                     <p class="text-center h4">درباره شرکت</p>
-                    <p class="text-right">
-
+                    <p class="text-justify">
+                        یک برنامه‌نویس، برنامه‌نویس رایانه، توسعه‌دهنده، کدنویس، یا مهندس نرم‌افزار کسی است که نرم‌افزار رایانه می‌نویسد. عبارت برنامه‌نویس رایانه می‌تواند به یک متخصص در زمینه‌ای از برنامه‌نویسی یا یک شخص دارای سررشته که برای بسیاری از گونه‌های نرم‌افزار کد می‌نویسد اشاره کند. شخصی که یک روش رسمی برای برنامه‌نویسی تمرین یا تدریس می‌کند همچنین می‌تواند به عنوان یک تحلیل‌گر برنامه‌نویس شناخته شود. زبان برنامه‌نویسی اصلی یک برنامه‌نویس (کوبول، سی، سی++، سی شارپ، جاوا، لیسپ، پایتون، غیره) اغلب دارای پیشوندی به این نام‌ها است، و کسانی که در محیط وب کار می‌کنند اغلب عنوان‌هایشان را با پیشوند وب می‌نویسند. عبارت برنامه‌نویس می‌تواند برای اشاره به یک توسعه‌دهنده نرم‌افزار، توسعه‌دهنده وب، توسعه‌دهندهٔ اپلیکیشن‌های تلفن همراه، توسعه‌دهندهٔ سفت‌افزار تعبیه‌شده، مهندس نرم‌افزار، دانشمند رایانه یا تحلیل‌گر نرم‌افزار به کار برده‌ شود
                     </p>
                 </div>
             </div>

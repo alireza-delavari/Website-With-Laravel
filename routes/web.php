@@ -21,6 +21,8 @@ Route::get('gallery/{id}', 'GalleryController@showGallery');
 
 Route::get('contactUs', 'ContactUsController@index');
 Route::post('contactUs', 'ContactUsController@sendEmail');
+///contactUs/agent
+Route::get('contactUs/agent', 'ContactUsController@agent');
 
 Route::get('products', 'productsController@index');
 Route::post('products/{id}', 'productsController@registerProduct');

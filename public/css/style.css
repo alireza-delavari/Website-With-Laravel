@@ -12,7 +12,7 @@
 
 body {
     background-color: #C0E0FF;
-
+    background: url(/img/b38.png) repeat;
 }
 
 @font-face {
@@ -212,19 +212,26 @@ glyphicon-home {
 }
 
 .myItem3{
-    width: 220px;
+    /*width: 220px;*/
     /*height: 150px;*/
     margin: 5px;
     vertical-align: top;
-    display: inline-block;
+    /*display: inline-block;*/
 
     border: 2px solid lightgray;
     border-bottom: 2px ridge lightgray;
-    background-color: #a0e0FF;
-    border-radius: 40px 1px 1px 1px;
-    -webkit-box-shadow: 1px 2px 2px #111;
-    box-shadow: 1px 2px 2px #111;
-
+    /*background-color: #a0e0FF;*/
+    border-radius: 1px 1px 1px 1px;
+    /*-webkit-box-shadow: 1px 2px 2px #111;*/
+    -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    min-height: 235px;
+}
+.myItem3 hr{
+    border-color: gray;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /*main page productSlider*/
@@ -244,6 +251,7 @@ glyphicon-home {
 .productSliderAllProducts img {
     width: 80PX !important;
     height: 80px !important;
+    border-radius: 5px 5px 5px 5px;
 }
 .productSliderAllProducts .glyphicon-chevron-right,.productSliderAllProducts .glyphicon-chevron-left{
     top: 40% !important;
@@ -259,17 +267,19 @@ glyphicon-home {
 }
 .productSliderItemContainer{
     text-align: center;
+    text-align: -webkit-center;
     overflow: auto;
+    padding-bottom: 8px;
 }
 
 .productSliderItem{
     display: table-cell;
-    padding-left: 5px;
+    padding-left: 8px;
+    border-radius: 5px 5px 5px 5px;
 }
 
-.prductItemactive{
-    border: 2px solid white;
-    box-shadow: 1px 1px 1px 1px gray;
+.prductItemactive img{
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 .bigHr {
@@ -427,7 +437,7 @@ footer input[type=email] {
         height: 200px;
     }
 
-    .callusForm input, .btnFile {
+    .callusForm input,.callusForm select, .btnFile {
         max-width: 160px;
     }
 
@@ -469,7 +479,7 @@ footer input[type=email] {
     padding: 8px 0px;
 }
 
-.callusForm input, .btnFile {
+.callusForm input,.callusForm select, .btnFile {
     max-width: 192px;
     width: 100%;
     text-align: center;

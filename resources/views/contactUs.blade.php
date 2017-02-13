@@ -24,6 +24,17 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-6 col-xs-12">موضوع:</div>
+                        <div class="col-sm-6 col-xs-12">
+                            <select class="form-control" name="subject">
+                                <option value="-1">موضوع</option>
+                                <option @if(isset($isAgent)) selected="selected" @endif value="1">اعطای نمایندگی</option>
+                                <option value="2">پیشنهاد</option>
+                                <option value="3">انتقاد</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-6 col-xs-12">ایمیل:</div>
                         <div class="col-sm-6 col-xs-12">
                             <input type="email" name="email" class="form-control" required="required"
@@ -133,6 +144,17 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="callusinfo">
+                                {{-- http://map.parsijoo.ir/API.html?lat=33.91074606699266&lon=50.451604203504374&zoom=17&m=1 --}}
+                                {{--<object type='type/html' data='http://map.parsijoo.ir/API.html?lat=33.91074606699266&lon=50.451604203504374&zoom=17&m=1' style="width: 100%;height: 300px;"></object>--}}
+                                <iframe src='http://map.parsijoo.ir/API.html?lat=33.91119529388772&lon=50.45237027983929&zoom=16&m=1' style="width: 100%;height: 300px;"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
                     {{--<table>--}}
                     {{--<tr>--}}
                     {{--<th> شماره تماس:</th>--}}

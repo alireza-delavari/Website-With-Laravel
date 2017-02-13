@@ -4,7 +4,12 @@ $(document).ready(function () {
     //$("html").niceScroll();
     //$("body").niceScroll({scrollspeed: 60, mousescrollstep: 60});
     $(".allImages").niceScroll({railalign: 'left', railpadding: {top: 10, right: 3, left: 0, bottom: 0}});
-    $(".productSliderItemContainer").niceScroll({railpadding: {top: 0, right: 0, left: 0, bottom: -5},rtlmode: "ltr",scrollspeed: 50,mousescrollstep: 70});
+    $(".productSliderItemContainer").niceScroll({
+        railpadding: {top: 0, right: 0, left: 0, bottom: -5},
+        rtlmode: "ltr",
+        scrollspeed: 50,
+        mousescrollstep: 70
+    });
 
 
     $('.thumbnail').click(function () {
@@ -86,7 +91,7 @@ $(document).ready(function () {
         //$(".callusForm").disable()
         //$(this).attr('disabled','disabled');
 
-        $(this).parents('form').find("input[type!=hidden],textarea").attr('disabled', 'disabled');
+        $(this).parents('form').find("input[type!=hidden],textarea,select").attr('disabled', 'disabled');
         $(this).attr('disabled', 'disabled');
         //$(".callusForm input[type!=hidden]").attr('disabled', 'disabled');
         //$(".callusForm textarea").attr('disabled', 'disabled');
@@ -108,35 +113,63 @@ $(document).ready(function () {
 
 
     //productSlider
-    $(".productSliderItem").click(function () {
+    function changeProductSliderItem(productItem) {
         //productSliderImgContainer
-        var pimg=$(this).find("img").attr("src");
-        var thisItem=$(this);
-        $(".productSliderImgContainer").find("img").fadeOut(500,function () {
-            $(".productSliderImgContainer").find("img").attr("src",pimg);
+        // var pimg=$(this).find("img").attr("src");
+        var pimg = $(productItem).find("img").attr("src");
+        //var thisItem=$(this);
+        var thisItem = $(productItem);
+        $(".productSliderImgContainer").find("img").fadeOut(500, function () {
+            $(".productSliderImgContainer").find("img").attr("src", pimg);
             $(".productSliderImgContainer").find("img").fadeIn(500);
             //var pScrollBar = $(".productSliderItemContainer");
             //console.log($(thisItem).scrollLeft);
+            $(".productSliderItem").removeClass('prductItemactive');
             thisItem.addClass('prductItemactive');
             //pScrollBar.scrollLeft(thisItem.scrollLeft());
         });
-    });
-    $('.productSliderAllProductsInner .left').click(function () {
-        var pScrollBar = $(".productSliderItemContainer");
-        pScrollBar.scrollLeft(pScrollBar.scrollLeft()-100);
-    });
-    $('.productSliderAllProductsInner .right').click(function () {
-        console.log("left");
-        var pScrollBar = $(".productSliderItemContainer");
-        pScrollBar.scrollLeft(pScrollBar.scrollLeft()+100);
+    }
+
+    ///
+    $(".productSliderItem").click(function () {
+        changeProductSliderItem(this);
     });
 
+
+    $('.productSliderAllProductsInner .left').click(function () {
+        if ($(".prductItemactive").next().length > 0)
+            var n = $(".prductItemactive").next();
+        else
+            var n = $(".prductItemactive").parent().children().filter(':first');
+        changeProductSliderItem(n);
+        $(".productSliderItemContainer").scrollLeft($(".prductItemactive").position().left);
+        //var pScrollBar = $(".productSliderItemContainer");
+        //pScrollBar.scrollLeft(pScrollBar.scrollLeft() - 100);
+    });
+    $('.productSliderAllProductsInner .right').click(function () {
+        if ($(".prductItemactive").prev().length > 0)
+            var n = $(".prductItemactive").prev();
+        else
+            var n = $(".prductItemactive").parent().children().filter(':last');
+        changeProductSliderItem(n);
+         var pScrollBar = $(".productSliderItemContainer");
+         // var scw = $(".productSliderItemContainer").prop('scrollWidth');
+        $(".productSliderItemContainer").scrollLeft($(".prductItemactive").position().left);
+
+    });
+    setInterval(function () {
+        if ($(".prductItemactive").next().length > 0)
+            var n = $(".prductItemactive").next();
+        else
+            var n = $(".prductItemactive").parent().children().filter(':first');
+        changeProductSliderItem(n)
+        $(".productSliderItemContainer").scrollLeft($(".prductItemactive").position().left);
+    },5000);
 
     // $("#content-slider").lightSlider({
     //     loop:true,
     //     keyPress:true
     // });
-
 
 
     // $('#myCarousel4').carousel({
@@ -158,3 +191,4 @@ $(document).ready(function () {
     // });
 
 });
+

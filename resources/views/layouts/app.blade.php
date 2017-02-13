@@ -96,18 +96,9 @@
                 <li><a href="#">اطلاعات فنی </a></li>
                 <li><a href="/products">محصولات </a></li>
                 <li><a href="/gallery">گالری تصاویر </a></li>
-                <li><a href="#">اعطای نمایندگی </a></li>
+                <li><a href="/contactUs/agent">اعطای نمایندگی </a></li>
                 <li><a href="/contactUs">ارتباط با ما </a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">درباره ما <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/aboutUs">درباره شرکت</a></li>
-                        <li><a href="/products">محصولات</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">تاریخچه</a></li>
-                    </ul>
-                </li>
+                <li><a href="/aboutUs">درباره شرکت</a></li>
             </ul>
 
         </div>

@@ -18,6 +18,12 @@ class ContactUsController extends Controller
 
     }
 
+    function agent()
+    {
+        $isAgent=true;
+        return view('contactUs',compact('isAgent'));
+    }
+
     function sendEmail(Request $request)
     {
 
@@ -47,6 +53,7 @@ class ContactUsController extends Controller
             'phonenumber.required' => 'فیلد "شماره تماس" خالی است.',
             'description.required' => 'فیلد "توضیحات" خالی است.',
             'description.max' => 'فیلد "توضیحات" باید کمتر از :max کاراکتر باشد.',
+            'subject.required' => 'فیلد "موضوع" خالی است.',
         ];
 
         $rules = [
@@ -54,6 +61,7 @@ class ContactUsController extends Controller
             'email' => 'required|email',
             'description' => 'required|max:600',
             'phonenumber' => 'required|numeric|regex:/^(0)[0-9]{10}$/',
+            'subject' => 'required|not_in:-1',
         ];
         $this->validate($request, $rules, $messages);
 
@@ -61,6 +69,7 @@ class ContactUsController extends Controller
         $senderFrom = $request["email"];//$_POST["email"];
         $senderName = $request["name"];//$_POST["name"];
         $senderDescription = $request["description"];//$_POST["description"];
+        $senderSubject = $request["subject"];//$_POST["description"];
         $senderNumber = $request["phonenumber"];//$_POST["phonenumber"];
         $senderFile = $request["fileAttachmet"];//$_POST["phonenumber"];
 //        $sss = $request->file('fileAttachmet');
@@ -113,7 +122,21 @@ class ContactUsController extends Controller
         //$mail->isHTML(true);                                  // Set email format to HTML
         $emailView = \View::make('emails/email2', compact('senderName', 'senderNumber', 'senderFrom', 'senderDescription'))->render();
         $mail->CharSet = "UTF-8";
-        $mail->Subject = $senderName . "  " . $senderNumber;
+        $sSubject="subject";
+        switch ($senderSubject){
+            case 1:
+                $sSubject="اعطای نمایندگی";
+                break;
+            case 2:
+                $sSubject="پیشنهاد";
+                break;
+            case 3:
+                $sSubject="انتقاد";
+                break;
+            default:
+                $sSubject="موضوع";
+        }
+        $mail->Subject = $sSubject;//$senderName . "  " . $senderNumber;
         $mail->Body = $emailView;//$senderDescription;
         $mail->AltBody = $emailView;//'This is the body in plain text for non-HTML mail clients';
 
